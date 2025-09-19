@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandra Chen | Senior Creative Director</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 60px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+            width: 100%;
+            padding-top: 80px;
+        }
+
+        .hero-text {
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+        }
+
+        .hero-text .subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .hero-text .description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+            padding: 16px 35px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 16px 0;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #1a1a1a;
+        }
+
+        .hero-visual {
+            position: relative;
+            opacity: 0;
+            animation: fadeInRight 1.2s ease 0.6s forwards;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 500px;
+        }
+
+        .visual-item {
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+
+        .visual-item:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            grid-row: 1 / 3;
+        }
+
+        .visual-item:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .visual-item:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .visual-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stats-section {
+            position: absolute;
+            bottom: 80px;
+            left: 60px;
+            display: flex;
+            gap: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 1.2s forwards;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            nav .container {
+                padding: 20px 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats-section {
+                position: static;
+                padding-top: 60px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Portfolio and Contact Page Styles */
+        .page-content {
+            display: none;
+            padding-top: 100px;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Portfolio styles */
+        .portfolio-page .header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 1000;
+            padding: 30px 0;
+        }
+
+        .portfolio-page .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .portfolio-page .header-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .portfolio-page .header-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .portfolio-page .header-title .count {
+            background: #f5f5f5;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .portfolio-page .header-nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .portfolio-page .header-nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-page .header-nav a:hover {
+            color: #666;
+        }
+
+        .portfolio-page .filter-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .portfolio-page .filter-tabs {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .portfolio-page .filter-tab {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 400;
+            color: #999;
+            cursor: pointer;
+            padding: 12px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-page .filter-tab.active {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .portfolio-page .filter-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #1a1a1a;
+        }
+
+        .portfolio-page .projects-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 80px;
+        }
+
+        .portfolio-page .project-card {
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-page .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .portfolio-page .project-image {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-page .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .portfolio-page .project-card:hover .project-image::before {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .portfolio-page .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-page .project-category {
+            font-size: 12px;
+            font-weight: 500;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .portfolio-page .project-year {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .portfolio-page .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .portfolio-page .project-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-page .project-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-page .project-tag {
+            background: #f8f8f8;
+            color: #555;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .portfolio-page .project1 .project-image { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .portfolio-page .project2 .project-image { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .portfolio-page .project3 .project-image { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .portfolio-page .project4 .project-image { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .portfolio-page .project5 .project-image { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .portfolio-page .project6 .project-image { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+        /* Contact page styles */
+        .contact-page .header {
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .contact-page .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-page .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+        }
+
+        .contact-page .header-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-page .header-nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-page .header-nav a:hover {
+            color: #666;
+        }
+
+        .contact-page .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: start;
+        }
+
+        .contact-page .contact-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .contact-page .contact-info .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        .contact-page .contact-details {
+            margin-bottom: 50px;
+        }
+
+        .contact-page .detail-group {
+            margin-bottom: 35px;
+        }
+
+        .contact-page .detail-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .contact-page .detail-value {
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .contact-page .detail-value a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-page .detail-value a:hover {
+            border-color: #1a1a1a;
+        }
+
+        .contact-page .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-page .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-page .social-link:hover {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
+        }
+
+        .contact-page .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .contact-page .form-group {
+            margin-bottom: 30px;
+        }
+
+        .contact-page .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .contact-page .form-group input,
+        .contact-page .form-group textarea {
+            width: 100%;
+            padding: 16px 0;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            background: transparent;
+            font-family: inherit;
+            font-size: 16px;
+            color: #1a1a1a;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-page .form-group input:focus,
+        .contact-page .form-group textarea:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+
+        .contact-page .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-page .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .contact-page .submit-btn {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-page .submit-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .contact-page .form-note {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .contact-page .availability-status {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 3px solid #43e97b;
+        }
+
+        .contact-page .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .contact-page .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #43e97b;
+            border-radius: 50%;
+        }
+
+        .contact-page .status-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .contact-page .status-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .portfolio-page .header-content, .portfolio-page .filter-section, .portfolio-page .projects-grid {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .portfolio-page .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .portfolio-page .header-nav {
+                gap: 20px;
+            }
+
+            .contact-page .contact-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                padding: 60px 30px;
+            }
+
+            .contact-page .header-content {
+                padding: 20px 30px;
+            }
+
+            .contact-page .contact-info h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-page .contact-form {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Alexandra Chen</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-page="home">Home</a></li>
+                <li><a href="#work" data-page="work">Work</a></li>
+                <li><a href="#contact" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="home-page" class="page-content active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="subtitle">Senior Creative Director</div>
+                        <h1>Crafting Digital Experiences</h1>
+                        <p class="description">
+                            I specialize in creating exceptional digital experiences through strategic design thinking,
+                            user-centered approach, and innovative visual solutions for global brands.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#work" class="btn-primary" data-page="work">View Portfolio</a>
+                            <a href="#contact" class="btn-secondary" data-page="contact">Get in Touch</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="visual-grid">
+                            <div class="visual-item"></div>
+                            <div class="visual-item"></div>
+                            <div class="visual-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="work-page" class="page-content portfolio-page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>Selected Work</h1>
+                    <span class="count">2022-2024</span>
+                </div>
+                <div class="header-nav">
+                    <a href="#home" data-page="home">Home</a>
+                    <a href="#contact" data-page="contact">Contact</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Projects</button>
+                <button class="filter-tab" data-filter="digital">Digital Design</button>
+                <button class="filter-tab" data-filter="brand">Brand Identity</button>
+                <button class="filter-tab" data-filter="web">Web Design</button>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card project1" data-category="brand">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Brand Identity</span>
+                    <span class="project-year">2024</span>
+                </div>
+                <h3 class="project-title">TechFlow Rebrand</h3>
+                <p class="project-description">Complete visual identity redesign for a leading SaaS platform, including logo, brand guidelines, and digital asset library.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Brand Strategy</span>
+                    <span class="project-tag">Visual Identity</span>
+                    <span class="project-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="project-card project2" data-category="web">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Web Design</span>
+                    <span class="project-year">2024</span>
+                </div>
+                <h3 class="project-title">Meridian E-commerce</h3>
+                <p class="project-description">User experience design and interface development for a luxury fashion e-commerce platform with focus on conversion optimization.</p>
+                <div class="project-tags">
+                    <span class="project-tag">UX Strategy</span>
+                    <span class="project-tag">E-commerce</span>
+                    <span class="project-tag">Conversion</span>
+                </div>
+            </div>
+
+            <div class="project-card project3" data-category="digital">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Digital Design</span>
+                    <span class="project-year">2023</span>
+                </div>
+                <h3 class="project-title">HealthCore App</h3>
+                <p class="project-description">Mobile application design for healthcare management platform, featuring intuitive patient portal and provider dashboard.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Mobile Design</span>
+                    <span class="project-tag">Healthcare</span>
+                    <span class="project-tag">User Research</span>
+                </div>
+            </div>
+
+            <div class="project-card project4" data-category="brand">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Brand Identity</span>
+                    <span class="project-year">2023</span>
+                </div>
+                <h3 class="project-title">Sustainable Solutions</h3>
+                <p class="project-description">Environmental consulting firm's complete brand identity, emphasizing sustainability through thoughtful design choices and eco-friendly materials.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Sustainability</span>
+                    <span class="project-tag">Print Design</span>
+                    <span class="project-tag">Environment</span>
+                </div>
+            </div>
+
+            <div class="project-card project5" data-category="web">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Web Design</span>
+                    <span class="project-year">2023</span>
+                </div>
+                <h3 class="project-title">Financial Dashboard</h3>
+                <p class="project-description">Enterprise financial analytics platform with complex data visualization, real-time monitoring, and intuitive navigation systems.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Data Viz</span>
+                    <span class="project-tag">Enterprise</span>
+                    <span class="project-tag">Analytics</span>
+                </div>
+            </div>
+
+            <div class="project-card project6" data-category="digital">
+                <div class="project-image"></div>
+                <div class="project-meta">
+                    <span class="project-category">Digital Design</span>
+                    <span class="project-year">2022</span>
+                </div>
+                <h3 class="project-title">Cultural Museum</h3>
+                <p class="project-description">Interactive digital exhibition design for contemporary art museum, featuring immersive storytelling and accessibility considerations.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Interactive</span>
+                    <span class="project-tag">Cultural</span>
+                    <span class="project-tag">Accessibility</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-page" class="page-content contact-page">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="header-title">Let's Work Together</h1>
+                <div class="header-nav">
+                    <a href="#home" data-page="home">Home</a>
+                    <a href="#work" data-page="work">Work</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h1>Ready to create something exceptional?</h1>
+                <p class="subtitle">I collaborate with forward-thinking companies and individuals to create meaningful digital experiences that drive results.</p>
+
+                <div class="contact-details">
+                    <div class="detail-group">
+                        <div class="detail-label">Email</div>
+                        <div class="detail-value">
+                            <a href="mailto:alexandra.chen@design.com">alexandra.chen@design.com</a>
+                        </div>
+                    </div>
+
+                    <div class="detail-group">
+                        <div class="detail-label">Phone</div>
+                        <div class="detail-value">
+                            <a href="tel:+14155551234">+1 (415) 555-1234</a>
+                        </div>
+                    </div>
+
+                    <div class="detail-group">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">San Francisco, California</div>
+                    </div>
+
+                    <div class="detail-group">
+                        <div class="detail-label">Response Time</div>
+                        <div class="detail-value">Within 24 hours</div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Dribbble</a>
+                    <a href="#" class="social-link">Behance</a>
+                </div>
+
+                <div class="availability-status">
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span class="status-text">Available for new projects</span>
+                    </div>
+                    <p class="status-description">Currently accepting select projects starting Q2 2025. Book a consultation to discuss your vision.</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <input type="text" id="project" name="project" placeholder="Brand Identity, Web Design, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <input type="text" id="budget" name="budget" placeholder="$10k - $50k, $50k+, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project goals, timeline, and any specific requirements..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="form-note">* Required fields</div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('a[data-page]');
+            const homePageBtns = document.querySelectorAll('.hero-actions a');
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const projectsGrid = document.querySelector('.projects-grid');
+            const contactForm = document.querySelector('.contact-form form');
+
+            function showPage(pageId) {
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId + '-page').classList.add('active');
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const pageId = link.dataset.page;
+                    showPage(pageId);
+                });
+            });
+
+            homePageBtns.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const pageId = btn.dataset.page;
+                    showPage(pageId);
+                });
+            });
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const filter = tab.dataset.filter;
+                    document.querySelectorAll('.projects-grid .project-card').forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    alert("Thank you for your interest! I'll review your project details and respond within 24 hours.");
+                });
+            }
+
+            // Initial page load based on URL hash
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash + '-page')) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+    </script>
+</body>
+</html>
